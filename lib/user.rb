@@ -22,13 +22,14 @@ class User
     end
   end
 
-  def self.find_by_username(username)
-    @@users.find { |user| user.username == username }
-  end
-
   def self.authenticate(username, password)
     user = find_by_username(username)
     user && BCrypt::Password.new(user.password) == password ? user : nil
+  end
+  
+
+  def self.find_by_username(username)
+    @@users.find { |user| user.username == username }
   end
 
   def self.sign_up

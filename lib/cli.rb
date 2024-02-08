@@ -31,7 +31,7 @@ class CLI
     else
       puts "Could not retrieve data for '#{stock_symbol}'. Check the symbol and try again."
     end
-  end
+  end  # Added missing end
 
   # Main menu method
   def menu
@@ -58,13 +58,13 @@ class CLI
       when 5
         User.reset_password
       when 6
-        puts "Goodbye!"
+        puts "Goodbye! Thank you for using the Stock Price CLI."
         exit
       else
         puts "Invalid input, please try again."
       end
     end
-  end
+  end  # Added missing end
 
   # Login method
   def login
@@ -78,22 +78,15 @@ class CLI
     else
       puts "Login failed. Incorrect username or password."
     end
-  end
+  end  # Added missing end
 
   # Logout method
   def logout
     puts "You have been logged out successfully."
   end
-
-  # End program method (might not be necessary if using 'exit' in the menu)
-  def end_program
-    puts "Thank you for using the Stock Price CLI. Have a great day!"
-  end
-end
+end  # This end closes the CLI class
 
 if __FILE__ == $0
   cli = CLI.new
   cli.run
 end
-
-
