@@ -23,11 +23,13 @@ class CLI
 
     stock_data = Scraper.scrape_data(stock_symbol)
 
-    if stock_data && stock_data[:price] && stock_data[:change]
+    if stock_data && stock_data[:price] && stock_data[:range] && stock_data[:ratio]
       puts "Stock Symbol: #{stock_symbol}"
       puts "Stock Name: #{stock_data[:name]}"
-      puts "Current Price: #{stock_data[:price]}"
-      puts "Change: #{stock_data[:change]}"
+      puts "Current Price: $#{stock_data[:price]}"
+      puts "Day's Range: #{stock_data[:range]}"
+      puts "PE Ratio: #{stock_data[:ratio]}"
+
     else
       puts "Could not retrieve data for '#{stock_symbol}'. Check the symbol and try again."
     end
